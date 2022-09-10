@@ -63,10 +63,9 @@ public class Form1 : Form
 
         public static bool check_license(string license_file="license.dat"){
                 var fbuf = read_file(license_file);
-                SHA256 shHash = SHA256.Create();
-		byte[] hashValue = shHash.ComputeHash(fbuf);
+		byte[] hashValue = fbuf;
                 //MessageBox.Show(Convert.ToBase64String(hashValue));
-                return (Convert.ToBase64String(hashValue)=="PXiO+35VWUQJ1Mh02g8A0LdK5OE4f8npLY3ZlXjp5MA=");
+                return (Convert.ToBase64String(hashValue)=="MTIzNDcyMzA5NTcyMzkwNTM=");
 	}	
 }
 
