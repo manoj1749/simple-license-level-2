@@ -31,7 +31,8 @@ public class Form1 : Form
         //Socket sender = new Socket(ipAddress.AddressFamily,SocketType.Stream, ProtocolType.Tcp);
         //sender.Connect(remoteEP);
 
-        Console.WriteLine("Socket connected to {0}", sender.RemoteEndPoint.ToString());
+        //Console.WriteLine("Socket connected to {0}", sender.RemoteEndPoint.ToString());
+		Console.WriteLine("Socket connected");
         Size = new Size(150, 150);
         button2 = new Button();
         button2.Size = new Size(60, 20);
