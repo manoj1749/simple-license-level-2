@@ -23,6 +23,15 @@ public class Form1 : Form
 	//public MainMenu Menu;
         public Form1()
         {
+			IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
+            IPAddress ipAddress = ipHostInfo.AddressList[0];
+            IPEndPoint remoteEP = new IPEndPoint(ipAddress, 11000);
+
+            // Create a TCP/IP  socket.  
+            Socket sender = new Socket(ipAddress.AddressFamily,SocketType.Stream, ProtocolType.Tcp);
+			sender.Connect(remoteEP);
+
+            Console.WriteLine("Socket connected to {0}",sender.RemoteEndPoint.ToString());
                 Size = new Size(150, 150);
                 button2 = new Button();
                 button2.Size = new Size(60, 20);

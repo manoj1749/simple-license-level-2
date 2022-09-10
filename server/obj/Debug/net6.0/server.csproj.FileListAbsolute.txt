@@ -1,0 +1,15 @@
+/Users/manoj/Documents/Github/simple-license-level-2/server/bin/Debug/net6.0/server
+/Users/manoj/Documents/Github/simple-license-level-2/server/bin/Debug/net6.0/server.deps.json
+/Users/manoj/Documents/Github/simple-license-level-2/server/bin/Debug/net6.0/server.runtimeconfig.json
+/Users/manoj/Documents/Github/simple-license-level-2/server/bin/Debug/net6.0/server.dll
+/Users/manoj/Documents/Github/simple-license-level-2/server/bin/Debug/net6.0/server.pdb
+/Users/manoj/Documents/Github/simple-license-level-2/server/obj/Debug/net6.0/server.csproj.AssemblyReference.cache
+/Users/manoj/Documents/Github/simple-license-level-2/server/obj/Debug/net6.0/server.GeneratedMSBuildEditorConfig.editorconfig
+/Users/manoj/Documents/Github/simple-license-level-2/server/obj/Debug/net6.0/server.AssemblyInfoInputs.cache
+/Users/manoj/Documents/Github/simple-license-level-2/server/obj/Debug/net6.0/server.AssemblyInfo.cs
+/Users/manoj/Documents/Github/simple-license-level-2/server/obj/Debug/net6.0/server.csproj.CoreCompileInputs.cache
+/Users/manoj/Documents/Github/simple-license-level-2/server/obj/Debug/net6.0/server.dll
+/Users/manoj/Documents/Github/simple-license-level-2/server/obj/Debug/net6.0/refint/server.dll
+/Users/manoj/Documents/Github/simple-license-level-2/server/obj/Debug/net6.0/server.pdb
+/Users/manoj/Documents/Github/simple-license-level-2/server/obj/Debug/net6.0/server.genruntimeconfig.cache
+/Users/manoj/Documents/Github/simple-license-level-2/server/obj/Debug/net6.0/ref/server.dll
