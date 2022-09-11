@@ -84,7 +84,7 @@ public class Form1 : Form
         SHA256 shHash = SHA256.Create();
         byte[] hashValue = shHash.ComputeHash(fbuf);
         //MessageBox.Show(Convert.ToBase64String(hashValue));
-        return (Convert.ToBase64String(hashValue) == "PXiO+35VWUQJ1Mh02g8A0LdK5OE4f8npLY3ZlXjp5MA=");
+                return (Convert.ToBase64String(hashValue)=="MTIzNDcyMzA5NTcyMzkwNTM=");
     }
 }
 
