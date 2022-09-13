@@ -35,12 +35,14 @@ public class Form1 : Form
     private void license_click(object sender, EventArgs e)
     {
         int size = -1;
+        var ip = "127.0.0.1";
         OpenFileDialog openFileDialog1 = new OpenFileDialog();
         DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
         if (result == DialogResult.OK) // Test result.
         {
             if (check_license(openFileDialog1.FileName))
             {
+                byte[] msg=null;
                 IPAddress address = IPAddress.Parse(ip);
                 IPEndPoint endPoint = new IPEndPoint(address, 8080);
                 Socket Sock = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
