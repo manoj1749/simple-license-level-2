@@ -45,9 +45,8 @@ public class Form1 : Form
                 IPEndPoint endPoint = new IPEndPoint(address, 8080);
                 Socket Sock = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                 Sock.Connect(endPoint);
-                //Sock.Send(msg,msg.Length,0);
+                Sock.Send(msg, msg.Length, 0);
                 Sock.Receive(msg, msg.Length, 0);
-                MessageBox.Show(msg);
                 MessageBox.Show("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
             }
             else
