@@ -10,3 +10,4 @@ obj/Debug/net6.0-windows/simple_license.GeneratedMSBuildEditorConfig.editorconfi
 device/obj/Debug/net6.0/device.assets.cache
 device/obj/Debug/net6.0/device.csproj.AssemblyReference.cache
 obj/project.assets.json
+.DS_Store
