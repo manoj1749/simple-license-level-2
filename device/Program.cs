@@ -11,7 +11,6 @@ public class Program
 
     public static void Main(string[] args)
     {
-        var bind_ip = "127.0.0.1";
         Socket listenSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
 
@@ -20,18 +19,8 @@ public class Program
         // The decision to bind to ip or loopback is done based on an environment variable bind_ip
 
         IPAddress hostIP = null;
-        if (String.IsNullOrEmpty(bind_ip))
-        {
-            hostIP = IPAddress.Loopback;
-            Console.WriteLine(hostIP);
-        }
-        else
-        {
-            for (int i = 0; i < ipHostInfo.AddressList.Length; i++)
-            {
-                if (ipHostInfo.AddressList[i].AddressFamily == AddressFamily.InterNetwork) hostIP = ipHostInfo.AddressList[i];
-            }
-        }
+        hostIP = IPAddress.Loopback;
+        Console.WriteLine(hostIP);
 
         if (hostIP == null) throw new ArgumentException("No valid IPv4 IPAddress to bind to");
 
@@ -45,8 +34,10 @@ public class Program
         {
             Socket clientSocket = listenSocket.Accept();
             byte[] buffer = new byte[1024];
+            Console.WriteLine("2");
             int received = clientSocket.Receive(buffer);
             byte[] data = new byte[received];
+            Console.WriteLine("3");
             Array.Copy(buffer, data, received);
             string text = Encoding.ASCII.GetString(data);
             Console.WriteLine("Received: {0}", text);
