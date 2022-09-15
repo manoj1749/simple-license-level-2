@@ -35,7 +35,7 @@ public class Form1 : Form
     private void license_click(object sender, EventArgs e)
     {
         int size = -1;
-        var ip = "192.168.64.4";
+        var ip = "127.0.0.1";
         OpenFileDialog openFileDialog1 = new OpenFileDialog();
         DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
         if (result == DialogResult.OK) // Test result.
@@ -59,7 +59,7 @@ public class Form1 : Form
                 MessageBox.Show(endPoint.ToString());
                 MessageBox.Show("5");
                 Sock.Send(msg, msg.Length, 0);
-                object value = Sock.Receive(rec, rec.Length, 0);
+                Sock.Receive(rec, rec.Length, 0);
                 MessageBox.Show(Encoding.ASCII.GetString(rec));
                 MessageBox.Show("6");
                 MessageBox.Show("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
