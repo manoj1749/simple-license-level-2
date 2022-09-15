@@ -42,6 +42,7 @@ public class Program
             string text = Encoding.ASCII.GetString(data);
             Console.WriteLine("Received: {0}", text);
             byte[] response = Encoding.ASCII.GetBytes("Hello World!");
+            Console.WriteLine(Encoding.ASCII.GetString(response));
             clientSocket.Send(response);
             clientSocket.Close();
         }
