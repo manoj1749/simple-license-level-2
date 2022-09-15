@@ -34,14 +34,14 @@ public class Program
         {
             Socket clientSocket = listenSocket.Accept();
             byte[] buffer = new byte[1024];
-            Console.WriteLine("2");
+            //Console.WriteLine("2");
             int received = clientSocket.Receive(buffer);
             byte[] data = new byte[received];
-            Console.WriteLine("3");
+            //Console.WriteLine("3");
             Array.Copy(buffer, data, received);
             string text = Encoding.ASCII.GetString(data);
             Console.WriteLine("Received: {0}", text);
-            byte[] response = Encoding.ASCII.GetBytes("Hello World!");
+            byte[] response = Encoding.ASCII.GetBytes("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
             Console.WriteLine(Encoding.ASCII.GetString(response));
             clientSocket.Send(response);
             clientSocket.Close();
