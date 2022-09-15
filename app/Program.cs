@@ -94,9 +94,7 @@ public class Form1 : Form
     public static bool check_license(string license_file = "license.dat")
     {
         var fbuf = read_file(license_file);
-        MessageBox.Show(fbuf);
         byte[] hashValue = fbuf;
-        MessageBox.Show(hashValue);
         //MessageBox.Show(Convert.ToBase64String(hashValue));
         return (Convert.ToBase64String(hashValue) == "MTIzNDcyMzA5NTcyMzkwNTM=");
     }
