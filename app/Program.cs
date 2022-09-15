@@ -35,20 +35,33 @@ public class Form1 : Form
     private void license_click(object sender, EventArgs e)
     {
         int size = -1;
-        var ip = "127.0.0.1";
+        var ip = "192.168.64.4";
         OpenFileDialog openFileDialog1 = new OpenFileDialog();
         DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
         if (result == DialogResult.OK) // Test result.
         {
             if (check_license(openFileDialog1.FileName))
             {
-                byte[] msg=null;
+                byte[] msg = Encoding.ASCII.GetBytes("Hi");
+                byte[] rec = null;
+                MessageBox.Show("1");
                 IPAddress address = IPAddress.Parse(ip);
+                MessageBox.Show(ip);
+                MessageBox.Show(address.ToString());
+                MessageBox.Show("2");
                 IPEndPoint endPoint = new IPEndPoint(address, 8080);
+                MessageBox.Show(endPoint.ToString());
+                MessageBox.Show("3");
                 Socket Sock = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+                MessageBox.Show(Sock.ToString());
+                MessageBox.Show("4");
                 Sock.Connect(endPoint);
+                MessageBox.Show(endPoint.ToString());
+                MessageBox.Show("5");
                 Sock.Send(msg, msg.Length, 0);
-                Sock.Receive(msg, msg.Length, 0);
+                Sock.Receive(rec, rec.Length, 0);
+                MessageBox.Show(Encoding.ASCII.GetString(rec));
+                MessageBox.Show("6");
                 MessageBox.Show("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
             }
             else
