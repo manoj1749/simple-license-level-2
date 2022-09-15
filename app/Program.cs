@@ -45,26 +45,26 @@ public class Form1 : Form
                 byte[] msg = Encoding.ASCII.GetBytes("Hi");
                 MessageBox.Show("1");
                 IPAddress address = IPAddress.Parse(ip);
-                MessageBox.Show(ip);
-                MessageBox.Show(address.ToString());
-                MessageBox.Show("2");
+                //MessageBox.Show(ip);
+                //MessageBox.Show(address.ToString());
+                //MessageBox.Show("2");
                 IPEndPoint endPoint = new IPEndPoint(address, 8080);
-                MessageBox.Show(endPoint.ToString());
-                MessageBox.Show("3");
+                //MessageBox.Show(endPoint.ToString());
+                //MessageBox.Show("3");
                 Socket Sock = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-                MessageBox.Show(Sock.ToString());
-                MessageBox.Show("4");
+                //MessageBox.Show(Sock.ToString());
+                //MessageBox.Show("4");
                 Sock.Connect(endPoint);
-                MessageBox.Show(endPoint.ToString());
-                MessageBox.Show("5");
+                //MessageBox.Show(endPoint.ToString());
+                //MessageBox.Show("5");
                 Sock.Send(msg, msg.Length, 0);
                 byte[] buffer = new byte[1024];
                 int recieved = Sock.Receive(buffer);
                 byte[] data = new byte[recieved];
                 Array.Copy(buffer, data, recieved);
                 MessageBox.Show(Encoding.ASCII.GetString(data));
-                MessageBox.Show("6");
-                MessageBox.Show("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
+                //MessageBox.Show("6");
+                //MessageBox.Show("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
             }
             else
             {
@@ -94,7 +94,9 @@ public class Form1 : Form
     public static bool check_license(string license_file = "license.dat")
     {
         var fbuf = read_file(license_file);
+        MessageBox.Show(fbuf);
         byte[] hashValue = fbuf;
+        MessageBox.Show(hashValue);
         //MessageBox.Show(Convert.ToBase64String(hashValue));
         return (Convert.ToBase64String(hashValue) == "MTIzNDcyMzA5NTcyMzkwNTM=");
     }
