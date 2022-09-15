@@ -43,7 +43,6 @@ public class Form1 : Form
             if (check_license(openFileDialog1.FileName))
             {
                 byte[] msg = Encoding.ASCII.GetBytes("Hi");
-                byte[] rec = null;
                 MessageBox.Show("1");
                 IPAddress address = IPAddress.Parse(ip);
                 MessageBox.Show(ip);
@@ -59,8 +58,8 @@ public class Form1 : Form
                 MessageBox.Show(endPoint.ToString());
                 MessageBox.Show("5");
                 Sock.Send(msg, msg.Length, 0);
-                Sock.Receive(rec, rec.Length, 0);
-                MessageBox.Show(Encoding.ASCII.GetString(rec));
+                Sock.Receive(msg, msg.Length, 0);
+                MessageBox.Show(Encoding.ASCII.GetString(msg));
                 MessageBox.Show("6");
                 MessageBox.Show("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
             }
