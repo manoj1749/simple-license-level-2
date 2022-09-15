@@ -23,6 +23,7 @@ public class Program
         if (String.IsNullOrEmpty(bind_ip))
         {
             hostIP = IPAddress.Loopback;
+            Console.WriteLine(hostIP);
         }
         else
         {
@@ -35,8 +36,10 @@ public class Program
         if (hostIP == null) throw new ArgumentException("No valid IPv4 IPAddress to bind to");
 
         IPEndPoint ep = new IPEndPoint(hostIP, 8080);
+        Console.WriteLine(ep);
         listenSocket.Bind(ep);
         listenSocket.Listen(1);
+        Console.WriteLine("1");
 
         while (true)
         {
