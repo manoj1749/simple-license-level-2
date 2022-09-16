@@ -25,15 +25,15 @@ public class Form1 : Form
     {
         Label ip_label = new Label();
         ip_label.Text = "Data";
-        ip_label.Location = new Point(offset_x + 60, 97);
+        ip_label.Location = new Point(40, 20);
         ip_label.AutoSize = true;
         ip_label.Font = new Font("Calibri", 10);
         ip_label.Padding = new Padding(6);
         this.Controls.Add(ip_label);
 
         textInputTextBox = new TextBox();
-        textInputTextBox.Location = new Point(offset_x + 95, 100);
-        textInputTextBox.Size = new Size(90, 90);
+        textInputTextBox.Location = new Point(50, 20);
+        textInputTextBox.Size = new Size(200, 90);
         this.Controls.Add(textInputTextBox);
 
         Size = new Size(150, 150);
