@@ -20,12 +20,12 @@ public class Program
 
         IPAddress hostIP = null;
         hostIP = IPAddress.Loopback;
-        Console.WriteLine(hostIP);
+        //Console.WriteLine(hostIP);
 
         if (hostIP == null) throw new ArgumentException("No valid IPv4 IPAddress to bind to");
 
         IPEndPoint ep = new IPEndPoint(hostIP, 8080);
-        Console.WriteLine(ep);
+        //Console.WriteLine(ep);
         listenSocket.Bind(ep);
         listenSocket.Listen(1);
         //Console.WriteLine("1");
