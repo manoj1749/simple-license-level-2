@@ -84,31 +84,14 @@ public class Form1 : Form
         }
     }
 
-    private static byte[] read_file(string path)
-    {
-        if (File.Exists(path))
-        {
-            var lic_stream = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.Read);
-            var bin_reader = new BinaryReader(lic_stream, Encoding.UTF8, false);
-            var fsz = new System.IO.FileInfo(path).Length;
-            byte[] fbuf = new byte[fsz];
-            bin_reader.Read(fbuf, 0, (int)fsz);
-            bin_reader.Close();
-            return fbuf;
-        }
-        else
-        {
-            throw new ArgumentException("Invalid path");
-        }
-    }
 
-    public static bool check_license(string license_file = "license.dat")
-    {
-        var fbuf = read_file(license_file);
-        byte[] hashValue = fbuf;
+    //public static bool check_license(string license_file = "license.dat")
+    //{
+        //var fbuf = read_file(license_file);
+        //byte[] hashValue = fbuf;
         //MessageBox.Show(Convert.ToBase64String(hashValue));
-        return (Convert.ToBase64String(hashValue) == "MTIzNDcyMzA5NTcyMzkwNTM=");
-    }
+        //return (Convert.ToBase64String(hashValue) == "MTIzNDcyMzA5NTcyMzkwNTM=");
+    //}
 }
 
 static class Program
