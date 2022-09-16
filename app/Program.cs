@@ -24,22 +24,22 @@ public class Form1 : Form
     public Form1()
     {
         Label ip_label = new Label();
-        ip_label.Text = "Data";
-        ip_label.Location = new Point(25, 20);
+        ip_label.Text = "License Key";
+        ip_label.Location = new Point(25, 30);
         ip_label.AutoSize = true;
         ip_label.Font = new Font("Calibri", 10);
         ip_label.Padding = new Padding(6);
         this.Controls.Add(ip_label);
 
         textInputTextBox = new TextBox();
-        textInputTextBox.Location = new Point(35, 20);
-        textInputTextBox.Size = new Size(200, 90);
+        textInputTextBox.Location = new Point(110, 30);
+        textInputTextBox.Size = new Size(120, 20);
         this.Controls.Add(textInputTextBox);
 
         Size = new Size(300, 150);
         button2 = new Button();
-        button2.Size = new Size(60, 20);
-        button2.Location = new Point(120, 50);
+        button2.Size = new Size(60, 25);
+        button2.Location = new Point(120, 60);
         button2.Text = "Run";
         this.Controls.Add(button2);
         button2.Click += new EventHandler(license_click);
@@ -51,7 +51,7 @@ public class Form1 : Form
             MessageBox.Show("Please enter a valid license key");
             return;
         }
-        int size = -1;
+        //int size = -1;
         var ip = "127.0.0.1";
         OpenFileDialog openFileDialog1 = new OpenFileDialog();
         DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
