@@ -55,42 +55,38 @@ public class Form1 : Form
         else
         {
             var ip = "127.0.0.1";
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
-            if (result == DialogResult.OK) // Test result.
-            {
-                    byte[] msg = Encoding.ASCII.GetBytes(textInputTextBox.Text);
-                    //MessageBox.Show("1");
-                    IPAddress address = IPAddress.Parse(ip);
-                    //MessageBox.Show(ip);
-                    //MessageBox.Show(address.ToString());
-                    //MessageBox.Show("2");
-                    IPEndPoint endPoint = new IPEndPoint(address, 8080);
-                    //MessageBox.Show(endPoint.ToString());
-                    //MessageBox.Show("3");
-                    Socket Sock = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-                    //MessageBox.Show("4");
-                    Sock.Connect(endPoint);
-                    //MessageBox.Show(endPoint.ToString());
-                    //MessageBox.Show("5");
-                    Sock.Send(msg, msg.Length, 0);
-                    byte[] buffer = new byte[1024];
-                    int recieved = Sock.Receive(buffer);
-                    byte[] data = new byte[recieved];
-                    Array.Copy(buffer, data, recieved);
-                    MessageBox.Show(Encoding.ASCII.GetString(data));
-                    //MessageBox.Show("6");
-            }
+            byte[] msg = Encoding.ASCII.GetBytes(textInputTextBox.Text);
+            //MessageBox.Show("1");
+            IPAddress address = IPAddress.Parse(ip);
+            //MessageBox.Show(ip);
+            //MessageBox.Show(address.ToString());
+            //MessageBox.Show("2");
+            IPEndPoint endPoint = new IPEndPoint(address, 8080);
+            //MessageBox.Show(endPoint.ToString());
+            //MessageBox.Show("3");
+            Socket Sock = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            //MessageBox.Show("4");
+            Sock.Connect(endPoint);
+            //MessageBox.Show(endPoint.ToString());
+            //MessageBox.Show("5");
+            Sock.Send(msg, msg.Length, 0);
+            byte[] buffer = new byte[1024];
+            int recieved = Sock.Receive(buffer);
+            byte[] data = new byte[recieved];
+            Array.Copy(buffer, data, recieved);
+            MessageBox.Show(Encoding.ASCII.GetString(data));
+            //MessageBox.Show("6");
+            Sock.Close();
         }
     }
 
 
     //public static bool check_license(string license_file = "license.dat")
     //{
-        //var fbuf = read_file(license_file);
-        //byte[] hashValue = fbuf;
-        //MessageBox.Show(Convert.ToBase64String(hashValue));
-        //return (Convert.ToBase64String(hashValue) == "MTIzNDcyMzA5NTcyMzkwNTM=");
+    //var fbuf = read_file(license_file);
+    //byte[] hashValue = fbuf;
+    //MessageBox.Show(Convert.ToBase64String(hashValue));
+    //return (Convert.ToBase64String(hashValue) == "MTIzNDcyMzA5NTcyMzkwNTM=");
     //}
 }
 
