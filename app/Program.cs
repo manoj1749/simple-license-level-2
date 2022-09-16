@@ -25,21 +25,21 @@ public class Form1 : Form
     {
         Label ip_label = new Label();
         ip_label.Text = "Data";
-        ip_label.Location = new Point(40, 20);
+        ip_label.Location = new Point(25, 20);
         ip_label.AutoSize = true;
         ip_label.Font = new Font("Calibri", 10);
         ip_label.Padding = new Padding(6);
         this.Controls.Add(ip_label);
 
         textInputTextBox = new TextBox();
-        textInputTextBox.Location = new Point(50, 20);
+        textInputTextBox.Location = new Point(35, 20);
         textInputTextBox.Size = new Size(200, 90);
         this.Controls.Add(textInputTextBox);
 
-        Size = new Size(150, 150);
+        Size = new Size(300, 150);
         button2 = new Button();
         button2.Size = new Size(60, 20);
-        button2.Location = new Point(35, 45);
+        button2.Location = new Point(120, 50);
         button2.Text = "Run";
         this.Controls.Add(button2);
         button2.Click += new EventHandler(license_click);
@@ -47,6 +47,10 @@ public class Form1 : Form
 
     private void license_click(object sender, EventArgs e)
     {
+        if(String.IsNullOrEmpty(textInputTextBox.Text)){
+            MessageBox.Show("Please enter a valid license key");
+            return;
+        }
         int size = -1;
         var ip = "127.0.0.1";
         OpenFileDialog openFileDialog1 = new OpenFileDialog();
