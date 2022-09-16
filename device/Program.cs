@@ -28,7 +28,7 @@ public class Program
         Console.WriteLine(ep);
         listenSocket.Bind(ep);
         listenSocket.Listen(1);
-        Console.WriteLine("1");
+        //Console.WriteLine("1");
 
         while (true)
         {
@@ -41,6 +41,7 @@ public class Program
             Array.Copy(buffer, data, received);
             string text = Encoding.ASCII.GetString(data);
             Console.WriteLine("Received: {0}", text);
+            Console.WriteLine(Convert.ToBase64String(data));
             byte[] response = Encoding.ASCII.GetBytes("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
             Console.WriteLine(Encoding.ASCII.GetString(response));
             clientSocket.Send(response);
