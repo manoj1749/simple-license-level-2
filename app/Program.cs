@@ -79,15 +79,6 @@ public class Form1 : Form
             Sock.Close();
         }
     }
-
-
-    //public static bool check_license(string license_file = "license.dat")
-    //{
-    //var fbuf = read_file(license_file);
-    //byte[] hashValue = fbuf;
-    //MessageBox.Show(Convert.ToBase64String(hashValue));
-    //return (Convert.ToBase64String(hashValue) == "MTIzNDcyMzA5NTcyMzkwNTM=");
-    //}
 }
 
 static class Program
