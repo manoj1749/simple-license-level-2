@@ -23,11 +23,24 @@ public class Form1 : Form
     //public MainMenu Menu;
     public Form1()
     {
+        Label ip_label = new Label();
+        ip_label.Text = "Data";
+        ip_label.Location = new Point(offset_x + 60, 97);
+        ip_label.AutoSize = true;
+        ip_label.Font = new Font("Calibri", 10);
+        ip_label.Padding = new Padding(6);
+        this.Controls.Add(ip_label);
+
+        textInputTextBox = new TextBox();
+        textInputTextBox.Location = new Point(offset_x + 95, 100);
+        textInputTextBox.Size = new Size(90, 90);
+        this.Controls.Add(textInputTextBox);
+
         Size = new Size(150, 150);
         button2 = new Button();
         button2.Size = new Size(60, 20);
         button2.Location = new Point(35, 45);
-        button2.Text = "License";
+        button2.Text = "Run";
         this.Controls.Add(button2);
         button2.Click += new EventHandler(license_click);
     }
