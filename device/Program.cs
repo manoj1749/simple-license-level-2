@@ -42,7 +42,7 @@ public class Program
             string text = Encoding.ASCII.GetString(data);
             Console.WriteLine("Received: {0}", text);
             string license = Convert.ToBase64String(data);
-            if (license == "MTIzNDcyMzA5NTcyMzkwNTM=")
+            if (license == "MTA4MjExMTQwOQ==")
             {
                 byte[] msg = Encoding.ASCII.GetBytes("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
                 clientSocket.Send(msg, msg.Length, 0);
