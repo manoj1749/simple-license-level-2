@@ -52,6 +52,11 @@ public class Form1 : Form
             MessageBox.Show("Please enter a valid license key");
             return;
         }
+        else if (countChars(textInputTextBox.Text) != 10)
+        {
+            MessageBox.Show("Please enter a valid license key");
+            return;
+        }
         else
         {
             var ip = "127.0.0.1";
