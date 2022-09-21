@@ -45,6 +45,19 @@ public class Form1 : Form
         button2.Click += new EventHandler(license_click);
     }
 
+    private int countChars(string str, char c)
+    {
+        int count = 0;
+        for (int i = 0; i < str.Length; i++)
+        {
+            if (str[i] == c)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+
     private void license_click(object sender, EventArgs e)
     {
         if (String.IsNullOrEmpty(textInputTextBox.Text))
