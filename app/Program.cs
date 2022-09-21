@@ -72,7 +72,7 @@ public class Form1 : Form
         else
         {
             var ip = "127.0.0.1";
-            byte[] msg = Encoding.ASCII.GetBytes(textInputTextBox.Text);
+            byte[] msg = Encoding.ASCII.GetBytes(textInputTextBox.Text/*123456789*/);
             //MessageBox.Show("1");
             IPAddress address = IPAddress.Parse(ip);
             //MessageBox.Show(ip);
