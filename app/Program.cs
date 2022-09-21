@@ -45,15 +45,14 @@ public class Form1 : Form
         button2.Click += new EventHandler(license_click);
     }
 
-    private int countChars(string str, char c)
+    private int countChars(string str)
     {
         int count = 0;
         for (int i = 0; i < str.Length; i++)
         {
-            if (str[i] == c)
-            {
+            
+            
                 count++;
-            }
         }
         return count;
     }
@@ -67,7 +66,7 @@ public class Form1 : Form
         }
         else if (countChars(textInputTextBox.Text) != 10)
         {
-            MessageBox.Show("Please enter a valid license key");
+            MessageBox.Show("license key isn't of required length");
             return;
         }
         else
