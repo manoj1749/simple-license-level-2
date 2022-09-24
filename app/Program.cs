@@ -50,9 +50,9 @@ public class Form1 : Form
         int count = 0;
         for (int i = 0; i < str.Length; i++)
         {
-            
-            
-                count++;
+
+
+            count++;
         }
         return count;
     }
@@ -72,7 +72,6 @@ public class Form1 : Form
         else
         {
             var ip = "127.0.0.1";
-            byte[] msg = Encoding.ASCII.GetBytes(textInputTextBox.Text/*123456789*/);
             //MessageBox.Show("1");
             IPAddress address = IPAddress.Parse(ip);
             //MessageBox.Show(ip);
@@ -84,6 +83,7 @@ public class Form1 : Form
             Socket Sock = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
             //MessageBox.Show("4");
             Sock.Connect(endPoint);
+            byte[] msg = Encoding.ASCII.GetBytes(countChars(textInputTextBox.Text));
             //MessageBox.Show(endPoint.ToString());
             //MessageBox.Show("5");
             Sock.Send(msg, msg.Length, 0);
@@ -91,7 +91,16 @@ public class Form1 : Form
             int recieved = Sock.Receive(buffer);
             byte[] data = new byte[recieved];
             Array.Copy(buffer, data, recieved);
-            MessageBox.Show(Encoding.ASCII.GetString(data));
+            if (Encoding.ASCII.GetString(data) == "1")
+            {
+                byte[] msg1 = Encoding.ASCII.GetBytes(textInputTextBox.Text/*123456789*/);
+                Sock.Send(msg1, msg1.Length, 0);
+                int rec = Sock.Receive(buffer);
+                byte[] data1 = new byte[rec];
+                Array.Copy(buffer, data1, rec);
+                MessageBox.Show(Encoding.ASCII.GetString(data1));
+            }
+            //MessageBox.Show(Encoding.ASCII.GetString(data));
             //MessageBox.Show("6");
             Sock.Close();
         }
