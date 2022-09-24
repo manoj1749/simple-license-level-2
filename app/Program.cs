@@ -83,7 +83,7 @@ public class Form1 : Form
             Socket Sock = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
             //MessageBox.Show("4");
             Sock.Connect(endPoint);
-            byte[] msg = Encoding.ASCII.GetBytes(countChars(textInputTextBox.Text));
+            byte[] msg = Encoding.ASCII.GetBytes(textInputTextBox.Text);
             //MessageBox.Show(endPoint.ToString());
             //MessageBox.Show("5");
             Sock.Send(msg, msg.Length, 0);
@@ -91,16 +91,7 @@ public class Form1 : Form
             int recieved = Sock.Receive(buffer);
             byte[] data = new byte[recieved];
             Array.Copy(buffer, data, recieved);
-            if (Encoding.ASCII.GetString(data) == "1")
-            {
-                byte[] msg1 = Encoding.ASCII.GetBytes(textInputTextBox.Text/*123456789*/);
-                Sock.Send(msg1, msg1.Length, 0);
-                int rec = Sock.Receive(buffer);
-                byte[] data1 = new byte[rec];
-                Array.Copy(buffer, data1, rec);
-                MessageBox.Show(Encoding.ASCII.GetString(data1));
-            }
-            //MessageBox.Show(Encoding.ASCII.GetString(data));
+            MessageBox.Show(Encoding.ASCII.GetString(data));
             //MessageBox.Show("6");
             Sock.Close();
         }
