@@ -40,22 +40,40 @@ public class Program
             //Console.WriteLine("3");
             Array.Copy(buffer, data, received);
             string text = Encoding.ASCII.GetString(data);
-            Console.WriteLine("Received: {0}", text);
-            string license = Convert.ToBase64String(data);
-            if (license == "MTA4MjExMTQwOQ==")
+            if (text == "10")
             {
-                byte[] msg = Encoding.ASCII.GetBytes("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
+                //Console.WriteLine("4");
+                byte[] msg = Encoding.ASCII.GetBytes("1");
                 clientSocket.Send(msg, msg.Length, 0);
+                int rec = clientSocket.Receive(buffer);
+                byte[] data1 = new byte[rec];
+                //Console.WriteLine("3");
+                Array.Copy(buffer, data1, rec);
+                string text1 = Encoding.ASCII.GetString(data1);
+                Console.WriteLine("Received: {0}", text1);
+                string license = Convert.ToBase64String(data1);
+                if (license == "MTA4MjExMTQwOQ==")
+                {
+                    byte[] msg1 = Encoding.ASCII.GetBytes("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
+                    clientSocket.Send(msg1, msg1.Length, 0);
+                }
+                else
+                {
+                    byte[] msg2 = Encoding.ASCII.GetBytes("Invalid License Key");
+                    clientSocket.Send(msg2, msg2.Length, 0);
+                }
+                //byte[] response = Encoding.ASCII.GetBytes("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
+                //Console.WriteLine(Encoding.ASCII.GetString(response));
+                //clientSocket.Send(response);
+                clientSocket.Close();
             }
             else
             {
-                byte[] msg = Encoding.ASCII.GetBytes("Invalid License Key");
+                //Console.WriteLine("5");
+                byte[] msg = Encoding.ASCII.GetBytes("0");
                 clientSocket.Send(msg, msg.Length, 0);
+                clientSocket.Close();
             }
-            //byte[] response = Encoding.ASCII.GetBytes("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
-            //Console.WriteLine(Encoding.ASCII.GetString(response));
-            //clientSocket.Send(response);
-            clientSocket.Close();
         }
     }
 }
