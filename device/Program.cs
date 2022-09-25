@@ -9,6 +9,17 @@ using System.Runtime.InteropServices;
 public class Program
 {
 
+    private int countChars(string str)
+    {
+        int count = 0;
+        for (int i = 0; i < str.Length; i++)
+        {
+
+
+            count++;
+        }
+        return count;
+    }
     public static void Main(string[] args)
     {
         Socket listenSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -40,18 +51,18 @@ public class Program
             //Console.WriteLine("3");
             Array.Copy(buffer, data, received);
             string text = Encoding.ASCII.GetString(data);
-            if (text == "10")
+            Console.WriteLine("Received: {0}", text);
+            int count = 0;
+            for (int i = 0; i < text.Length; i++)
+            {
+
+
+                count++;
+            }
+            if (count == 10)
             {
                 //Console.WriteLine("4");
-                byte[] msg = Encoding.ASCII.GetBytes("1");
-                clientSocket.Send(msg, msg.Length, 0);
-                int rec = clientSocket.Receive(buffer);
-                byte[] data1 = new byte[rec];
-                //Console.WriteLine("3");
-                Array.Copy(buffer, data1, rec);
-                string text1 = Encoding.ASCII.GetString(data1);
-                Console.WriteLine("Received: {0}", text1);
-                string license = Convert.ToBase64String(data1);
+                string license = Convert.ToBase64String(data);
                 if (license == "MTA4MjExMTQwOQ==")
                 {
                     byte[] msg1 = Encoding.ASCII.GetBytes("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
@@ -70,7 +81,7 @@ public class Program
             else
             {
                 //Console.WriteLine("5");
-                byte[] msg = Encoding.ASCII.GetBytes("0");
+                byte[] msg = Encoding.ASCII.GetBytes("L");
                 clientSocket.Send(msg, msg.Length, 0);
                 clientSocket.Close();
             }
