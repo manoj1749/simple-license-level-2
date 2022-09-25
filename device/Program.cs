@@ -64,7 +64,7 @@ public class Program
                 string license = Convert.ToBase64String(data);
                 if (license == "MTA4MjExMTQwOQ==")
                 {
-                    byte[] msg1 = Encoding.ASCII.GetBytes("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
+                    byte[] msg1 = Encoding.ASCII.GetBytes("cyberchaze{1s_th1s_4_r3al_l1c3ns3}");
                     clientSocket.Send(msg1, msg1.Length, 0);
                 }
                 else
