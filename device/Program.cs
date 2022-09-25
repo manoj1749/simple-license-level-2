@@ -81,7 +81,7 @@ public class Program
             else
             {
                 //Console.WriteLine("5");
-                byte[] msg = Encoding.ASCII.GetBytes("L");
+                byte[] msg = Encoding.ASCII.GetBytes("Length of string is not as expected");
                 clientSocket.Send(msg, msg.Length, 0);
                 clientSocket.Close();
             }
