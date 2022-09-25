@@ -29,8 +29,7 @@ public class Program
         // In Docker we have to bind to the actual IPAddress in order to make it accessible from outside
         // The decision to bind to ip or loopback is done based on an environment variable bind_ip
 
-        IPAddress hostIP;
-        hostIP = IPAddress.Loopback;
+        IPAddress hostIP = IPAddress.Loopback;
         //Console.WriteLine(hostIP);
 
         if (hostIP == null) throw new ArgumentException("No valid IPv4 IPAddress to bind to");
