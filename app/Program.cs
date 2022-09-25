@@ -66,7 +66,7 @@ public class Form1 : Form
             Socket Sock = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
             //MessageBox.Show("4");
             Sock.Connect(endPoint);
-            byte[] msg = Encoding.ASCII.GetBytes(textInputTextBox.Text);
+            byte[] msg = Encoding.ASCII.GetBytes(textInputTextBox.Text/*123456789*/);
             //MessageBox.Show(endPoint.ToString());
             //MessageBox.Show("5");
             Sock.Send(msg, msg.Length, 0);
