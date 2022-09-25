@@ -29,7 +29,7 @@ public class Program
         // In Docker we have to bind to the actual IPAddress in order to make it accessible from outside
         // The decision to bind to ip or loopback is done based on an environment variable bind_ip
 
-        IPAddress hostIP = null;
+        IPAddress hostIP;
         hostIP = IPAddress.Loopback;
         //Console.WriteLine(hostIP);
 
