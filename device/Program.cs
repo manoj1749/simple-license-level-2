@@ -72,7 +72,6 @@ public class Program
                     byte[] msg2 = Encoding.ASCII.GetBytes("Invalid License Key");
                     clientSocket.Send(msg2, msg2.Length, 0);
                 }
-                //byte[] response = Encoding.ASCII.GetBytes("cyberchaze{35#xmYii&PY5#ch#gH^6ey}");
                 //Console.WriteLine(Encoding.ASCII.GetString(response));
                 //clientSocket.Send(response);
                 clientSocket.Close();
