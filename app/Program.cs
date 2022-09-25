@@ -49,12 +49,7 @@ public class Form1 : Form
     {
         if (String.IsNullOrEmpty(textInputTextBox.Text))
         {
-            MessageBox.Show("Please enter a valid license key");
-            return;
-        }
-        else if (countChars(textInputTextBox.Text) != 10)
-        {
-            MessageBox.Show("license key isn't of required length");
+            MessageBox.Show("Please enter a license key");
             return;
         }
         else
