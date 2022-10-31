@@ -1,0 +1,15 @@
+*.md
+*.dat
+*.bat
+*.ps1
+*.git*
+build
+appgui
+dll_check
+ShellCodeInj
+handout
+appgui.runtimeconfig.json
+compile.sh
+docker-run.sh
+Dockerfile
+.dockerignore
