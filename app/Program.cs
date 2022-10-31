@@ -15,67 +15,94 @@ namespace appgui;
 
 public class Form1 : Form
 {
-    public Button button1;
-    public Button button2;
+    public Button button;
+    public TextBox ipBox;
+    public TextBox portBox;
     public TextBox textInputTextBox;
-    public Button textInputeButton;
+    public TextBox licenseKeyBox;
     //public bool license_valid;
     //public MainMenu Menu;
     public Form1()
     {
+        Size = new Size(280, 200);
         Label ip_label = new Label();
-        ip_label.Text = "License Key";
-        ip_label.Location = new Point(25, 30);
+        ip_label.Text = "IP";
+        ip_label.Location = new Point(18, 20);
         ip_label.AutoSize = true;
         ip_label.Font = new Font("Calibri", 10);
         ip_label.Padding = new Padding(6);
         this.Controls.Add(ip_label);
 
-        textInputTextBox = new TextBox();
-        textInputTextBox.Location = new Point(110, 30);
-        textInputTextBox.Size = new Size(120, 20);
-        this.Controls.Add(textInputTextBox);
+        ipBox = new TextBox();
+        ipBox.Location = new Point(53, 23);
+        ipBox.Size = new Size(90, 90);
+        this.Controls.Add(ipBox);
 
-        Size = new Size(300, 150);
-        button2 = new Button();
-        button2.Size = new Size(60, 25);
-        button2.Location = new Point(120, 60);
-        button2.Text = "Run";
-        this.Controls.Add(button2);
-        button2.Click += new EventHandler(license_click);
+        Label port_label = new Label();
+        port_label.Text = "Port";
+        port_label.Location = new Point(153, 20);
+        port_label.AutoSize = true;
+        port_label.Font = new Font("Calibri", 10);
+        port_label.Padding = new Padding(6);
+        this.Controls.Add(port_label);
+
+        portBox = new TextBox();
+        portBox.Location = new Point(198, 23);
+        portBox.Size = new Size(40, 30);
+        this.Controls.Add(portBox);
+
+        Label license = new Label();
+        license.Text = "License";
+        license.Location = new Point(18, 70);
+        license.AutoSize = true;
+        license.Font = new Font("Calibri", 10);
+        license.Padding = new Padding(6);
+        this.Controls.Add(license);
+
+        licenseKeyBox = new TextBox();
+        licenseKeyBox.Location = new Point(80, 73);
+        licenseKeyBox.Size = new Size(150, 90);
+        this.Controls.Add(licenseKeyBox);
+
+        button = new Button();
+        button.Size = new Size(60, 20);
+        button.Location = new Point(110, 120);
+        button.Text = "Run";
+        this.Controls.Add(button);
+        button.Click += new EventHandler(license_click);
     }
 
     private void license_click(object sender, EventArgs e)
     {
-        if (String.IsNullOrEmpty(textInputTextBox.Text))
+        if (String.IsNullOrEmpty(ipBox.Text))
+        {
+            MessageBox.Show("Please enter a IP address");
+            return;
+        }
+        else if (String.IsNullOrEmpty(portBox.Text))
+        {
+            MessageBox.Show("Please enter a port");
+            return;
+        }
+        else if (String.IsNullOrEmpty(licenseKeyBox.Text))
         {
             MessageBox.Show("Please enter a license key");
             return;
         }
         else
         {
-            var ip = "127.0.0.1";
-            //MessageBox.Show("1");
-            IPAddress address = IPAddress.Parse(ip);
-            //MessageBox.Show(ip);
-            //MessageBox.Show(address.ToString());
-            //MessageBox.Show("2");
-            IPEndPoint endPoint = new IPEndPoint(address, 8080);
-            //MessageBox.Show(endPoint.ToString());
-            //MessageBox.Show("3");
+            IPAddress address = IPAddress.Parse(ipBox.Text);
+            IPEndPoint endPoint = new IPEndPoint(address, Convert.ToInt32(portBox.Text));
             Socket Sock = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-            //MessageBox.Show("4");
             Sock.Connect(endPoint);
-            byte[] msg = Encoding.ASCII.GetBytes(textInputTextBox.Text/*123456789*/);
-            //MessageBox.Show(endPoint.ToString());
-            //MessageBox.Show("5");
-            Sock.Send(msg, msg.Length, 0);
+            byte[] snd_buffer = new byte[1];
+            snd_buffer = Encoding.ASCII.GetBytes(licenseKeyBox.Text/*123456789*/);
+            Sock.Send(snd_buffer, 1, 0);
             byte[] buffer = new byte[1024];
             int recieved = Sock.Receive(buffer);
             byte[] data = new byte[recieved];
             Array.Copy(buffer, data, recieved);
             MessageBox.Show(Encoding.ASCII.GetString(data));
-            //MessageBox.Show("6");
             Sock.Close();
         }
     }
