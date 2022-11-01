@@ -96,8 +96,8 @@ public class Form1 : Form
             Socket Sock = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
             Sock.Connect(endPoint);
             byte[] snd_buffer = new byte[1];
-            snd_buffer = Encoding.ASCII.GetBytes(licenseKeyBox.Text/*123456789*/);
-            Sock.Send(snd_buffer, 1, 0);
+            snd_buffer = Encoding.UTF8.GetBytes(licenseKeyBox.Text/*123456789*/);
+            Sock.Send(snd_buffer);
             byte[] buffer = new byte[1024];
             int recieved = Sock.Receive(buffer);
             byte[] data = new byte[recieved];
