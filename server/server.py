@@ -16,10 +16,12 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 print(f"Connected by {addr}")
                 data = conn.recv(1)
                 print(data[0])
-                if data[0] == 254:
-                    print("Correct")
-                    print(flag)
-                    conn.sendall(flag)
+                data.decode("ascii")
+                print(data)
+                #if data[0] == 254:
+                #    print("Correct")
+                print(flag)
+                conn.sendall(flag)
                 conn.close()
         except Exception as e:
             print(e)
